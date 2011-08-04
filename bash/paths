@@ -1,2 +1,52 @@
-export PATH="~/bin:~/.bin:/usr/local/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
+export PATH="~/bin:/usr/local/git/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+#
+# TextMate magic!
+#
+export EDITOR="mate -w"
+export CVSEDITOR="mate -w"
+export SVN_EDITOR="mate -w"
+
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/spidermonkey/lib
+
+# MacPorts Installer addition on 2010-07-20_at_10:16:08: adding an appropriate PATH variable for use with MacPorts.
+ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+#
+# add access for development
+#
+export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home"
+export JDK_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home"
+
+# Maven
+export MAVEN_HOME=/usr/local/maven/apache-maven-2.0.8
+export MVN_REPO=/Users/jdavis/.m2/repository
+
+# MySQL
+export MYSQL_HOME=/usr/local/mysql
+export MYSQL_PS1="\u, \d> "
+
+# Tomcat
+export CATALINA_HOME=/usr/local/tomcat
+
+#JBoss
+export JBOSS_HOME=/usr/local/jboss
+
+# RabbitMQ
+#export RABBITMQ_HOME=/usr/local/lib/erlang/lib/rabbitmq-server-1.5.3
+export RABBITMQ_HOME=/usr/local/lib/erlang/lib/rabbitmq_server-1.7.1
+
+
+#
+# Finally, update the path with all the good stuff
+export PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH:$MYSQL_HOME/bin:$CATALINA_HOME/bin:$JBOSS_HOME/bin:$RABBITMQ_HOME/sbin:DYLD_LIBRARY_PATH:$PATH
+
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+
+
+export EVENT_NOKQUEUE=1
+
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/#$HOME/~} $(__git_ps1 " (%s)")"; echo -ne "\007"'

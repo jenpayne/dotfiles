@@ -17,11 +17,12 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gs='git status'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*'
+alias svn-diff='git-svn-diff'
 
 # rails
 alias sc='script/console'
 alias ss='script/server'
+alias ssdc='script/server -e development_cached'
 alias sg='script/generate'
 alias a='autotest -rails'
 alias tlog='tail -f log/development.log'
@@ -31,3 +32,32 @@ alias rst='touch tmp/restart.txt'
 
 # commands starting with % for pasting from web
 alias %=' '
+
+
+#
+# Custom aliases
+#
+alias bdrbdc='./script/backgroundrb start -e development_cached'
+alias ssh1='ssh jdavis@voxeo1.internal.medsagetechnologies.com'
+alias ssh2='ssh jdavis@voxeo2.internal.medsagetechnologies.com'
+alias ssh3='ssh jdavis@voxeo3.internal.medsagetechnologies.com'
+alias ssh4='ssh jdavis@voxeo4.internal.medsagetechnologies.com'
+alias ssh5='ssh jdavis@voxeo5.internal.medsagetechnologies.com'
+alias ssh6='ssh jdavis@voxeo6.internal.medsagetechnologies.com'
+alias ssh7='ssh jdavis@voxeo7.internal.medsagetechnologies.com'
+alias ssh8='ssh jdavis@voxeo8.internal.medsagetechnologies.com'
+alias ssh9='ssh jdavis@voxeo9.internal.medsagetechnologies.com'
+alias ssh10='ssh jdavis@voxeo10.internal.medsagetechnologies.com'
+alias sshdb='ssh jdavis@10.7.130.121'
+alias sshvegas='ssh jdavis@10.71.130.190'
+alias sshvegas2='ssh jdavis@10.71.130.191'
+alias sshkiwi3='ssh jdavis@10.71.130.19'
+alias sshkiwi2='ssh jdavis@10.91.130.193'
+alias sshkiwi1='ssh jdavis@10.7.130.192'
+alias sshxander='osascript /Users/jdavis/Library/Scripts/Applications/Terminal/SetToRed.scpt;ssh xander'
+alias sshl1='osascript /Users/jdavis/Library/Scripts/Applications/Terminal/SetToL1.scpt;ssh luna1'
+alias sshl2='osascript /Users/jdavis/Library/Scripts/Applications/Terminal/SetToL2.scpt;ssh luna2'
+alias sshl3='osascript /Users/jdavis/Library/Scripts/Applications/Terminal/SetToL3.scpt;ssh luna3'
+alias m.='mate .'
+alias m='mate'
+alias rmq='rabbitmq-server'

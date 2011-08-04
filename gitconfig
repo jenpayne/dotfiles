@@ -1,0 +1,23 @@
+[core]
+        excludesfile = /Users/jdavis/.gitignore
+[user]
+        name = jdavis
+        email = jdavis@medsagetechnologies.com
+[alias]
+        co = checkout
+        st = status
+        br = branch
+[apply]
+        whitespace = nowarn
+[color]
+  status = auto
+        branch = auto
+        diff = auto
+[color "diff"]
+        new = cyan
+        old = magenta
+        frag = yellow
+        meta = green
+        commit = normal
+[alias]
+  svn-diff = !git-svn-diff
