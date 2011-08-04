@@ -50,5 +50,3 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 export EVENT_NOKQUEUE=1
 
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/#$HOME/~} $(__git_ps1 " (%s)")"; echo -ne "\007"'
-
-export PATH=$PATH:/usr/local/pgsql/bin
