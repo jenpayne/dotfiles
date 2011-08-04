@@ -1,2 +1,7 @@
-export PS1="\w$ "
-export EDITOR="mate_wait"
+export PS1="\u@\h\w$ "
+#
+# TextMate magic!
+#
+export EDITOR="mate -w"
+export CVSEDITOR="mate -w"
+export SVN_EDITOR="mate -w"
