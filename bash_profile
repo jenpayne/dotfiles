@@ -7,5 +7,5 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
-if [[ -s /Users/jdavis/.rvm/scripts/rvm ]] ; then source /Users/jdavis/.rvm/scripts/rvm ; fi
+if [[ -s /Users/jpayne/.rvm/scripts/rvm ]] ; then source /Users/jpayne/.rvm/scripts/rvm ; fi
 

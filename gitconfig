@@ -1,8 +1,8 @@
 [core]
-        excludesfile = /Users/jdavis/.gitignore
+        excludesfile = /Users/jpayne/.gitignore
 [user]
-        name = jdavis
-        email = jdavis@medsagetechnologies.com
+        name = jenpayne
+        email = jpayne@newcaresolutions.com
 [alias]
         co = checkout
         st = status
