@@ -3,16 +3,17 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+set noswapfile
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
 set nobackup
 set nowritebackup
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=50    " keep 50 lines of command line history
+set ruler   " show the cursor position all the time
+set showcmd   " display incomplete commands
+set incsearch   " do incremental searching
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -67,7 +68,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent    " always set autoindenting on
 
 endif " has("autocmd")
 
@@ -94,21 +95,24 @@ let mapleader = ","
 map <Leader>R :e doc/README_FOR_APP<CR>
 
 " Leader shortcuts for Rails commands
-map <Leader>m :Rmodel 
-map <Leader>c :Rcontroller 
-map <Leader>v :Rview 
-map <Leader>u :Runittest 
-map <Leader>f :Rfunctionaltest 
-map <Leader>tm :RTmodel 
-map <Leader>tc :RTcontroller 
-map <Leader>tv :RTview 
-map <Leader>tu :RTunittest 
-map <Leader>tf :RTfunctionaltest 
-map <Leader>sm :RSmodel 
-map <Leader>sc :RScontroller 
-map <Leader>sv :RSview 
-map <Leader>su :RSunittest 
-map <Leader>sf :RSfunctionaltest 
+map <Leader>m :Rmodel
+map <Leader>c :Rcontroller
+map <Leader>v :Rview
+map <Leader>u :Runittest
+map <Leader>f :Rfunctionaltest
+map <Leader>tm :RTmodel
+map <Leader>tc :RTcontroller
+map <Leader>tv :RTview
+map <Leader>tu :RTunittest
+map <Leader>tf :RTfunctionaltest
+map <Leader>sm :RSmodel
+map <Leader>sc :RScontroller
+map <Leader>sv :RSview
+map <Leader>su :RSunittest
+map <Leader>sf :RSfunctionaltest
+map <Leader>vi :tabe ~/.vimrc<CR>
+map <Leader>ff gg=G
+map <Leader>vu :RVunittest<CR>
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
@@ -147,6 +151,8 @@ imap <Tab> <C-N>
 
 imap <C-L> <Space>=><Space>
 
+imap jk <Esc>
+
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·
 
@@ -159,15 +165,22 @@ if filereadable(".vimrc.local")
   source .vimrc.local
 endif
 
+if has("autocmd")
+    filetype indent on
+endif
+
 " Use Ack instead of Grep when available
 if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor\ --ignore-dir=tmp\ --ignore-dir=coverage
 endif
 
 " Color scheme
-" colorscheme vividchalk
 " highlight NonText guibg=#060606
 " highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
+syntax enable
+set background=dark
+colorscheme jellybeans
 
 " Numbers
 set number
@@ -186,11 +199,25 @@ set complete=.,t
 set ignorecase
 set smartcase
 
+map ,r :!time bin/rspec % --color<CR>
+map ,d :!time bin/rspec % -fd --color<CR>
+
+map ,mar :Rabbrev! AR<CR>
+
+" Switch hash keys with values
+map ,ks :s/\([:_a-zA-z]\+\) => \([a-zA-Z:_]\+\)/\2 => \1/g<CR>
+
+"! CTL-P
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 set tags=./tags;
 
 let g:fuf_splitPathMatching=1
+
+let g:agprg="<custom-ag-path-goes-here> --column"
 
 " Open URL
 command -bar -nargs=1 OpenURL :!open <args>
@@ -198,10 +225,16 @@ function! OpenURL()
   let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
   echo s:uri
   if s:uri != ""
-	  exec "!open \"" . s:uri . "\""
+    exec "!open \"" . s:uri . "\""
   else
-	  echo "No URI found in line."
+    echo "No URI found in line."
   endif
 endfunction
 map <Leader>w :call OpenURL()<CR>
 
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+map <C-n> :NERDTreeToggle<CR>
+let &t_Co=256

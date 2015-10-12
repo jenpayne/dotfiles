@@ -7,6 +7,8 @@ alias l="ls -lAh"
 alias ll="ls -l"
 alias la='ls -A'
 
+alias hiapp='cd projects/hireology/app'
+
 # git
 alias gl='git pull'
 alias gp='git push'
@@ -21,14 +23,21 @@ alias svn-diff='git-svn-diff'
 
 # rails
 alias sc='script/console'
-alias ss='script/server'
+alias rs='rails s'
 alias ssdc='script/server -e development_cached'
 alias sg='script/generate'
 alias a='autotest -rails'
 alias tlog='tail -f log/development.log'
 alias scaffold='script/generate nifty_scaffold'
-alias migrate='rake db:migrate db:test:clone'
+alias migrate='bundle exec rake db:migrate'
 alias rst='touch tmp/restart.txt'
+alias be='bundle exec'
+
+
+#rspec
+alias fspec='bundle exec rspec spec_no_rails'
+alias rspec='bundle exec rspec spec'
+alias cukes='make run-cukes'
 
 # commands starting with % for pasting from web
 alias %=' '

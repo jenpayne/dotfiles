@@ -7,3 +7,7 @@ source ~/.bash/config
 if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
+
+function title {
+  TITLE=$*; export PROMPT_COMMAND='echo -ne "\033]0;$TITLE\007"'
+};export PATH="$PATH:$HOME/Library/Python/2.7/bin:$HOME/.bin"

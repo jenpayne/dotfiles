@@ -13,3 +13,68 @@ function railsapp {
 
 # misc
 alias reload='. ~/.bash_profile'
+
+
+# cd
+alias ..='cd ..'
+
+# ls
+alias ls="ls -F"
+alias l="ls -lAh"
+alias ll="ls -l"
+alias la='ls -A'
+
+alias hiapp='cd projects/hireology/app'
+
+# environments
+alias testenv="env RAILS_ENV=test"
+
+# git
+alias gl='git pull'
+alias gp='git push'
+alias gd='git diff'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gco='git checkout'
+alias gb='git branch'
+alias gs='git status'
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias svn-diff='git-svn-diff'
+
+# rails
+alias sc='script/console'
+alias rs='rails s'
+alias ssdc='script/server -e development_cached'
+alias sg='script/generate'
+alias a='autotest -rails'
+alias tlog='tail -f log/development.log'
+alias scaffold='script/generate nifty_scaffold'
+alias migrate='bundle exec rake db:migrate'
+alias rst='touch tmp/restart.txt'
+alias be='bundle exec'
+
+
+#rspec
+alias fspec='bundle exec rspec spec_no_rails'
+alias sspec='bundle exec rspec spec'
+alias cukes='make run-cukes'
+
+# commands starting with % for pasting from web
+alias %=' '
+
+
+#
+# Custom aliases
+#
+
+alias m.='mate .'
+alias m='mate'
+alias rmq='rabbitmq-server'
+
+alias tunnel_prod='ssh -p 22 -L 9953:localhost:5432  jpayne@db2.hireology.com'
+alias tunnel_qa='ssh -p 22 -L 9923:localhost:5432  jpayne@db3.hireology.com'
+alias production_deploy='cd ~/projects/hireology/ansible && ansible-playbook playbooks/deploy.yml -i production'
+
+alias imac='ssh barn.possumhollowalpacas.com -p  23983'
+
+alias 'pgres'='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'

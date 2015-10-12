@@ -1,8 +1,9 @@
 [core]
-        excludesfile = /Users/jpayne/.gitignore
+	excludesfile = /Users/jpayne/.gitignore
+	trustctime = false
 [user]
-        name = jenpayne
-        email = jpayne@newcaresolutions.com
+	name = Jennifer Payne
+	email = jenniferlynnpayne@gmail.com
 [alias]
         co = checkout
         st = status
@@ -21,3 +22,19 @@
         commit = normal
 [alias]
   svn-diff = !git-svn-diff
+[mergetool]
+	keepBackup = false
+	prompt = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[merge]
+	tool = Kaleidoscope
+[rerere]
+	enabled = true
